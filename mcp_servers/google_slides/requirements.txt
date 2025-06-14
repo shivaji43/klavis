@@ -1,11 +1,11 @@
 # Server dependencies
-starlette==0.31.1
+starlette==0.40.0
 uvicorn==0.30.0
 click==8.1.7
 python-dotenv==1.0.1
 
 # MCP framework
-mcp>=0.7.1
+mcp>=1.9.3
 
 # Google API dependencies
 google-api-python-client==2.116.0
