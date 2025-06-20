@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/generators-yml.json
+
+api:
+  specs:
+    - openapi: ../fern/openapi.json
+      overrides: overrides.yml
+
+groups:
+  python-sdk:
+    generators:
+      - name: fernapi/fern-python-sdk
+        version: 4.22.0
+        output:
+          location: pypi
+          package-name: klavis
+          token: ${PYPI_TOKEN}
+        github:
+          repository: Klavis-AI/python-sdk
+        config:
+          client_class_name: Klavis
+          pydantic_config:
+            enum_type: python_enums
+        metadata:
+          package-description: "Open Source MCP Integration for AI applications"
+          license: MIT
+        smart-casing: true
+  ts-sdk:
+    generators:
+      - name: fernapi/fern-typescript-node-sdk
+        version: 1.7.0
+        output:
+          location: npm
+          package-name: klavis
+          token: ${NPM_TOKEN} 
+        github:
+          repository: Klavis-AI/typescript-sdk
+        config:
+          namespaceExport: Klavis
+          allowCustomFetcher: true
+          skipResponseValidation: true
+          includeApiReference: true
+          noSerdeLayer: true
+        smart-casing: true
